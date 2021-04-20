@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react' 
-// CreateUser 배열에 항목 삭제하기
+// useEffect
 
 function User({user, onRemove, onToggle}){
     const {username, email, id, active}=user
@@ -13,7 +13,7 @@ function User({user, onRemove, onToggle}){
                 //useEffet안에서 사용하려면 deps부분에 사용할 것을 명시해주어야 함
     
 
-    {/* 기본 userEffect 
+    {/* 기본 useEffect 
         첫 파라미터는 함수, 두번째는 deps
     useEffect(()=>{
         console.log('컴포넌트가 화면에 나타남')
