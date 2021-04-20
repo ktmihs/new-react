@@ -1,5 +1,13 @@
 import React from 'react' 
 
+
+//  useRef쓰는 이유:
+// setInterval,setTimeout의 id 기억할 때,
+// 외부 라이브러리를 사용하여 생성된 인스턴스 담을 때,
+// scroll위치
+
+// 값이 바뀌어도 컴포넌트가 리랜더링 되지 않음!!
+
 function User({user}){
     return (
         <div>
@@ -9,24 +17,8 @@ function User({user}){
     )
 }
 
-function UserList2(){
-    const users=[
-        {
-            id: 1,
-            username:'a',
-            email:'first@example.com'
-        },
-        {
-            id: 2,
-            username:'b',
-            email:'second@example.com'
-        },
-        {
-            id: 3,
-            username:'c',
-            email:'third@example.com'
-        }
-    ]
+function UserList2({users}){
+    
     return(
         <div>
             {   //배열을 랜더링 할 때는 key를 설정해줘야 효율적으로 사용할 수 있다!
