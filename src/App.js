@@ -1,11 +1,40 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import './App.css'
 import Counter from './Counter';
 import InputSample from './InputSample';
 import UserList from './UserList';
+import UserList2 from './UserList2';
 function App() {
+  const users=[
+    {
+        id: 1,
+        username:'a',
+        email:'first@example.com'
+    },
+    {
+        id: 2,
+        username:'b',
+        email:'second@example.com'
+    },
+    {
+        id: 3,
+        username:'c',
+        email:'third@example.com'
+    }
+  ]
+  const nextId=useRef(4)
+  //굳이 리랜더링할 필요가 없기 때문에 변수를 기억하고 싶을 때 useRef를 사용할 수 있음
+  //값이 바뀐다고 해서 컴포넌트가 리랜더링 되는 것음 아님!!!!!!
+
+  const onCreate=()=>{
+    console.log(nextId.current)
+    nextId.current+=1
+    //다음 값을 계속해서 1씩 업 시켜줌
+  }
+
+
   return (
-    <UserList/>
+    <UserList2 users={users}/>
   );
 }
       //1. 태그는 모두 닫힌 태그여야 함
