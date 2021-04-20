@@ -1,3 +1,7 @@
+// onCreate처럼 새로 생성 시에는 concat이나 spread를 사용
+// onRemove처럼 삭제할 때는 filter를 사용
+// onToggle처럼 업데이트할 때는 map을 사용 
+
 import React,{useRef, useState} from 'react';
 import './App.css'
 import Counter from './Counter';
@@ -5,6 +9,7 @@ import CreateUser from './CreateUser';
 import InputSample from './InputSample';
 import UserList from './UserList';
 import UserList2 from './UserList2';
+import UserList3 from './UserList3';
 function App() {
 
   const [inputs,setInputs]=useState({
@@ -25,41 +30,22 @@ function App() {
     {
       id: 1,
       username:'a',
-      email:'first@example.com'
+      email:'first@example.com',
+      active: true
     },
     {
       id: 2,
       username:'b',
-      email:'second@example.com'
+      email:'second@example.com',
+      active: false
     },
     {
       id: 3,
       username:'c',
-      email:'third@example.com'
+      email:'third@example.com',
+      active:false
     }
   ])
-  {/*
-  users를 컴포넌트의 상태로써 관리하려면 그냥 useState로 감싸면 됨!
-  
-    const users=[
-      {
-          id: 1,
-          username:'a',
-          email:'first@example.com'
-      },
-      {
-          id: 2,
-          username:'b',
-          email:'second@example.com'
-      },
-      {
-          id: 3,
-          username:'c',
-          email:'third@example.com'
-      }
-    ]
-    
-  */}
   const nextId=useRef(4)
   //굳이 리랜더링할 필요가 없기 때문에 변수를 기억하고 싶을 때 useRef를 사용할 수 있음
   //값이 바뀐다고 해서 컴포넌트가 리랜더링 되는 것음 아님!!!!!!
@@ -84,7 +70,16 @@ function App() {
     //다음 값을 계속해서 1씩 업 시켜줌
   }
 
+  const onRemove=id=>{
+    setUsers(users.filter(user=>user.id !==id))
+  }
 
+  const onToggle=id=>{
+    setUsers(users.map(
+      user=>user.id===id?{...user,active: !user.active}:user
+    ))
+  } //id 일치여부에 따라서만 업데이트(전체 업데이트가 아닌)
+    //기존의 user를 수정하는 것이 아니라 새로운 user를 만들어서 특정 값을 덮어씌워주는 형태로 구현
   return (
     <>
       <CreateUser
@@ -93,7 +88,7 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />  
-      <UserList2 users={users}/>    
+      <UserList3 users={users} onRemove={onRemove} onToggle={onToggle}/>    
     </>
   );
 }
