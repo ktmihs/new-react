@@ -1,5 +1,5 @@
 import React from 'react' 
-
+// CreateUser 배열에 항목 추가하기
 
 //  useRef쓰는 이유:
 // setInterval,setTimeout의 id 기억할 때,
@@ -26,10 +26,11 @@ function UserList2({users}){
                     user=>(<User user={user} key={user.id}/>)
                 )
             }
-
+            {/*
             <User user={users[0]}/>
             <User user={users[1]}/>
             <User user={users[2]}/>
+            */}
         </div>
     )
 }
