@@ -26,3 +26,5 @@
 #### useReducer
     - useState : 변경하고 싶은 상태를 직접 설정
     - useReducer : 'action'이라는 객체(업데이트 시 참조하는 객체)를 기반으로 형태를 업데이트 함
+#### useState vs useReducer
+#### custom Hook
