@@ -1,8 +1,7 @@
-import React,{useRef, useMemo, useCallback, useReducer} from 'react'
+import React,{useRef, useMemo, useCallback, useReducer} from 'react';
 import './App.css'
-import CreateUser from './CreateUser'
-import UserList from './userlist/UserList'
-import useInputs from './useInputs'
+import CreateUser from '../CreateUser';
+import UserList from '../userlist/UserList';
 
 function countActiveUsers(users){
   console.log('활성 사용자 수를 세는 중...')
@@ -10,11 +9,10 @@ function countActiveUsers(users){
 }
 
 const initialState={
-  // hook으로 불러올 것이기 때문에 더이상 관리할 필요가 없음
-  // inputs:{
-  //   username:'',
-  //   email:''
-  // },
+  inputs:{
+    username:'',
+    email:''
+  },
   users:[
     {
       id: 1,
@@ -39,15 +37,14 @@ const initialState={
 
 function reducer(state,action){
   switch (action.type){
-    // hook으로 불러올 것이기 때문에 더이상 관리할 필요가 없음
-    // case 'CHANGE_INPUT':
-    //   return {
-    //     ...state,
-    //     inputs:{
-    //       ...state.inputs,
-    //       [action.name]:action.value
-    //     }
-    //   }
+    case 'CHANGE_INPUT':
+      return {
+        ...state,
+        inputs:{
+          ...state.inputs,
+          [action.name]:action.value
+        }
+      }
     case 'CREATE_USER':  // create_user작업으로 input과 user작업을 동시에 할 수 있음
       return {
         inputs:initialState.inputs,
@@ -71,26 +68,21 @@ function reducer(state,action){
         throw new Error('inhandled')
   }
 }
-function App() {
+function AppUseReducer() {
   const [state, dispatch] = useReducer(reducer, initialState)
   const nextId=useRef(4)
   // 비구조 할당
   const {users}=state
-  //  const {username,email}=state.inputs
-  const [form, onChange,reset]=useInputs({
-    username:'',
-    email:''
-  })
-  const {username,email}=form
+  const {username,email}=state.inputs
 
-  // const onChange=useCallback(e=>{
-  //   const {name,value}=e.target
-  //   dispatch({
-  //     type:'CHANGE_INPUT',
-  //     name,
-  //     value
-  //   })
-  // },[])
+  const onChange=useCallback(e=>{
+    const {name,value}=e.target
+    dispatch({
+      type:'CHANGE_INPUT',
+      name,
+      value
+    })
+  },[])
 
   const onCreate=useCallback(()=>{
     dispatch({
@@ -102,8 +94,7 @@ function App() {
       }
     })
     nextId.current+=1
-    reset()
-  },[username,email,reset]) //useCallback에서 기존 상태를 의존하고 있는 것을 사용하기 위해 []deps에 적어줌
+  },[username,email]) //useCallback에서 기존 상태를 의존하고 있는 것을 사용하기 위해 []deps에 적어줌
   
   const onToggle=useCallback(id=>{  // 처음 만든 것을 계속 재사용
     dispatch({
@@ -137,7 +128,7 @@ function App() {
     </>
   );
 }
-export default App;
+export default AppUseReducer;
 
 
 /**
