@@ -9,7 +9,7 @@
 import React,{useRef, useState, useMemo, useCallback} from 'react';
 import './App.css'
 import CreateUser from './CreateUser';
-import UserList from './UserList';
+import UserList from './userlist/UserList';
 
 function countActiveUsers(users){
   console.log('활성 사용자 수를 세는 중...')

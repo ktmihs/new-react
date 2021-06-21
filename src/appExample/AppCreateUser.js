@@ -2,9 +2,9 @@
 
 import React,{useRef, useState} from 'react';
 import './App.css'
-import Counter from './Counter';
-import CreateUser from './CreateUser';
-import InputSample from './InputSample';
+import Counter from '../Counter';
+import CreateUser from '../CreateUser';
+import InputSample from '../InputSample';
 import UserList from './UserList';
 import UserList2 from './UserList2';
 function App() {
@@ -40,7 +40,7 @@ function App() {
       email:'third@example.com'
     }
   ])
-  {/*
+  /*
   users를 컴포넌트의 상태로써 관리하려면 그냥 useState로 감싸면 됨!
   
     const users=[
@@ -61,7 +61,7 @@ function App() {
       }
     ]
     
-  */}
+  */
   const nextId=useRef(4)
   //굳이 리랜더링할 필요가 없기 때문에 변수를 기억하고 싶을 때 useRef를 사용할 수 있음
   //값이 바뀐다고 해서 컴포넌트가 리랜더링 되는 것음 아님!!!!!!
