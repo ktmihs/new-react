@@ -36,3 +36,8 @@
     - immer : 불변성을 해치는 코드를 작성해도 대신 불변성을 유지해줌
     - produce : 객체 불변성을 유지시켜주는 함수
     
+# 0728
+### Class형 component
+    - state, setState
+    - LifeCycle method
+    - https://bit.ly/fcreact-lifecycle

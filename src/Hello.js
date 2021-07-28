@@ -1,8 +1,21 @@
-import React from 'react'
-//react를 불러와서 사용하겠다는 뜻
-//1. 함수로 작성
-function Hello(){
-    return <div>안녕하세요</div>    //<div>는 JSX
+import React, {Component} from 'react'
+
+class Hello extends Component{
+    static defaultProps={
+        name:'이름없음'
+    }
+    render(){
+        const {color,isSpecial,name}=this.props
+        return(
+            <div style={color}>
+                {isSpecial && <b>*</b>}
+                안녕하세요 {name}
+            </div>
+        )
+    }
 }
+// Hello.defaultProps={
+//     name:'이름없음'
+// }
+
 export default Hello
-//hello를 내보내겠다는 뜻

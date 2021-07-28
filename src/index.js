@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Counter from './Counter'
+import Counter from './CounterFunction'
 import reportWebVitals from './reportWebVitals';
 import ContextSample from './ContextSample';
+import Hello from './Hello';
+import CounterClass from './CounterClass';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <CounterClass/>
   </React.StrictMode>,
   document.getElementById('root')
 );

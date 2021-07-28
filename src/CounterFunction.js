@@ -13,7 +13,7 @@ function reducer(state,action) {    //state의 타입은 어떤 것이든 상관
     }
 }
 
-function Counter(){
+function CounterFunction(){
 /*    const [number, setNumber]=useState(0)
     // number라는 수를 0부터 시작해서 변경시킴/ setNumber는 상태를 변경해주는 함수 
 
@@ -46,4 +46,4 @@ function Counter(){
         </div>
     )
 }
-export default Counter
+export default CounterFunction
