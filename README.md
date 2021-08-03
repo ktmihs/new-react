@@ -1,33 +1,33 @@
 # 0413
 (start react project)
-#### create react project & practice Hello, Wrapper example
+### create react project & practice Hello, Wrapper example
 
 # 0414
-#### practice Counter example
+### practice Counter example
 
 # 0419
-#### practice Input example
+### practice Input example
 
 # 0420
-#### practice CreateUser example
+### practice CreateUser example
     - 배열에 항목 추가
     - 배열에 항목 삭제
     - 배열에 항목 수정
-#### practice UserList example
-#### practice UseEffect example
+### practice UserList example
+### practice UseEffect example
 
 # 0618
-#### Component 최적화
+### Component 최적화
     - useMemo 연산된 값 재사용
     - useCallback 특정함수 재사용
     - React.memo 렌더링 된 결과 재사용
 
 # 0621
-#### useReducer
+### useReducer
     - useState : 변경하고 싶은 상태를 직접 설정
     - useReducer : 'action'이라는 객체(업데이트 시 참조하는 객체)를 기반으로 형태를 업데이트 함
-#### useState vs useReducer
-#### custom Hook
+### useState vs useReducer
+### custom Hook
 
 # 0727
 ### useContext
@@ -56,3 +56,5 @@
     - 자주 사용되는 코드에 대하여 단축어를 만들어 코드를 빠르게 생성하게 도와줌
     - snippet-generator.app 에서 손쉽게 변환 가능
     - 파일 > 기본 설정 > 사용자 코드 조각 > javascriptreact > 붙여넣기
+    
+# react example done !
