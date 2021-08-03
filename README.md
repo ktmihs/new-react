@@ -41,3 +41,18 @@
     - state, setState
     - LifeCycle method
     - https://bit.ly/fcreact-lifecycle
+
+# 0803
+### error-catch라는 새로운 프로젝트 생성
+### componentDidCatch
+    - class형 메소드에서 에러 처리 방법
+### Sentry
+    - sentry.io에서 현재 react 폴더에서 나오는 error를 관리할 수 있음
+### Prettier
+    - 자동으로 코드 스타일을 관리해줌(code style custom 가능)
+### ESLint
+    - js 문법을 검사해줌
+### Snippet
+    - 자주 사용되는 코드에 대하여 단축어를 만들어 코드를 빠르게 생성하게 도와줌
+    - snippet-generator.app 에서 손쉽게 변환 가능
+    - 파일 > 기본 설정 > 사용자 코드 조각 > javascriptreact > 붙여넣기
